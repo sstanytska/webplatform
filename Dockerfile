@@ -11,7 +11,7 @@ RUN mkdir /root/.kube
 COPY config /root/.kube/
 
 ## Set credentials for google cluster
-ENV GOOGLE_APPLICATION_CREDENTIALS=/root/.kube/
+ENV GOOGLE_APPLICATION_CREDENTIALS=/root/.kube/config
 
 
 ## Install all requirements to the docker image
