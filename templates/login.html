@@ -1,0 +1,66 @@
+ <title>FS Coding</title>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+<!-- <link rel="stylesheet" href="/static/recaptcha.css" type="text/css"> -->
+{% import "bootstrap/wtf.html" as wtf %}
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+
+<style>
+body {
+    font-family: Arial;
+    background-color: #141415;
+    padding: 50px;
+}
+.btn {
+    border: 2px solid transparent;
+    background: #28a745;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+</style>
+
+<form action="/login" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+			<div class="login-form">
+				<div class="control-group">
+					{{ form.hidden_tag() }}
+					{{ wtf.form_field(form.username) }}
+
+
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				{{ wtf.form_field(form.password) }}
+				{{ wtf.form_field(form.remember) }}
+				{{ form.recaptcha }}
+
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+
+                <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endif %}
+{% endblock %}

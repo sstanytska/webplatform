@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.blog-info {
+  background-color: #03b98e;
+  display: block;
+}
+
+.blog-info h4 {
+  color: white;
+}
+
+
+.blog-info .bottom-aply {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
+
+}
+
+.blog-info .bottom-aply:hover {
+  background-color: #03f9b3;
+}
+
+.blog-info .bottom-aply a {
+  display: block;
+  direction: none;
+  color: #03b98d;
+  font-size: 30px;
+}
+
+.blog-info .bottom-aply a:hover {
+  color: white;
+}
+
+.footer a {
+  color: white;
+}
+
+#lang {
+  color: #ced4da;
+}

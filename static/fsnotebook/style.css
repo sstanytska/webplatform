@@ -1,0 +1,71 @@
+body {
+  color: white;
+}
+
+.request-form {
+  padding: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+.ready-application {
+  padding: 20px
+  margin: auto;
+}
+
+
+.ready-fsnotebook {
+  width: 60%;
+  margin: auto;
+}
+
+.ready-fsnotebook a {
+  text-decoration: none;
+  color: #5087e0;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #00a200;
+  color: white;
+}
+
+.master-info {
+  border-radius: 5px;
+  padding: 30px;
+  margin: 30px;
+  background-color: #24806e;
+}
+
+.background-fsnotebook-form {
+  background-color: #207563;
+  padding: 20px;
+  border-radius: 10px;
+}
+.master-info .items {
+  display:inline-block
+  color: black;
+  text-decoration: none;
+  padding: 30px;
+  background-color: #a4d0c6;
+  border-radius: 10px;
+  color: black;
+}
+
+.master-info .disabled {
+  color: black;
+  text-decoration: none;
+  padding: 20px;
+  background-color: #a4d0c6;
+  border-radius: 20px;
+}

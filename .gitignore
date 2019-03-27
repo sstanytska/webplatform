@@ -1,0 +1,10 @@
+*Database*
+*test*
+*secret*
+*creds*
+*logs*
+*__pycache__*
+*.ftpconfig*
+*.DS_Store*
+
+config

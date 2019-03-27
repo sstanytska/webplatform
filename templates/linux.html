@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FS Coding</title>
+<link rel="shortcut icon" href="https://www.evolvecyber.com/assets/images/favicon.ico" />
+<link rel="stylesheet" href="/static/main/top.css" type="text/css">
+<link rel="stylesheet" href="/static/main/footler.css" type="text/css">
+<link rel="stylesheet" href="/static/main/menu.css" type="text/css">
+<link rel="stylesheet" href="/static/video/video.css" type="text/css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="topnav">
+  <a class="active" href="{{ url_for('logout') }}">logout</a>
+  <a href="{{ url_for('raiting') }}">Raiting</a>
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+</div>
+</div>
+
+
+<h2>Class Records</h2>
+</head>
+
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url_for('dashboard') }}">Dashboard</a>
+  <a href="{{ url_for('chat') }}">Chating</a>
+  <a href="{{ url_for('videos') }}">Videos</a>
+  <a href="{{ url_for('work') }}">work</a>
+  <a href="{{ url_for('contact') }}">Contact me</a>
+  <a href="{{ url_for('contact') }}">fsnotebook</a>
+</div>
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vertical-menu {
+    width: 100%;
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+</style>
+</head>
+<body>
+
+<div class="vertical-menu">
+  <a href="https://www.youtube.com/embed/i7_JEhQe-08">Introduction</a>
+  <a href="https://www.youtube.com/embed/3DmKReWiOl8">Basic Commands</a>
+  <a href="https://www.youtube.com/embed/TiFBHEyyZCo">Advanced Commands</a>
+  <a href="https://www.youtube.com/embed/ILN3GXz0x2I">User Management</a>
+  <a href="https://www.youtube.com/embed/d9S3ekgrCmA">Permission</a>
+  <a href="https://www.youtube.com/embed/tuDPVuOuJcA">Package Management</a>
+  <a href="https://www.youtube.com/embed/s08QnDSSyio">Repository Part1</a>
+  <a href="https://www.youtube.com/embed/tA2iqD4hfQE">Repository Part2</a>
+  <a href="https://www.youtube.com/embed/4KMRiD32f1Y">File System Management</a>
+  <a href="https://www.youtube.com/embed/jbI4_w2pNKw">Volume Group</a>
+  <a href="https://www.youtube.com/embed/60PzsrpTt44">RAID</a>
+  <a href="https://www.youtube.com/embed/N8AH_IFSyKU">Network Part1 </a>
+  <a href="https://www.youtube.com/embed/MEDeQ2IDmDI">Network Part2 </a>
+  <a href="https://www.youtube.com/embed/B1LqSlTNRPA">Boot sequence - RunLevel</a>
+  <a href="https://www.youtube.com/embed/wWv51jcgPyQ">NFS (Network File System)</a>
+  <a href="https://www.youtube.com/embed/z1M4NnKYEqA">WebServer (http)</a>
+  <a href="https://www.youtube.com/embed/ZOxYouWDYA8">Crontab </a>
+</div>
+
+
+
+<footer class="footer">
+  <p>&copy; Farkhod Sadykov 2019</p>
+</footer>
+
+</html>

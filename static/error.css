@@ -1,0 +1,18 @@
+body {
+  color: white;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.box-disabled {
+  padding: 50px;
+
+}
+
+.box-disabled h4 {
+  padding: 20px;
+}

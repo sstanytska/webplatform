@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FS Coding</title>
+<link rel="shortcut icon" href="https://www.evolvecyber.com/assets/images/favicon.ico" />
+<link rel="stylesheet" href="/static/main/top.css" type="text/css">
+<link rel="stylesheet" href="/static/dashboard/table.css" type="text/css">
+<link rel="stylesheet" href="/static/dashboard/dashboard.css" type="text/css">
+<link rel="stylesheet" href="/static/main/footler.css" type="text/css">
+<link rel="stylesheet" href="/static/main/menu.css" type="text/css">
+<link rel="stylesheet" href="/static/video/video.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="topnav">
+  <a class="active" href="{{ url_for('logout') }}">logout</a>
+    <a href="{{ url_for('raiting') }}">Raiting</a>
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+</div>
+</div>
+<h2>Welcome {{ name }} </h2>
+</head>
+<center>
+  </center>
+<body>
+      <div class="menu">
+        <a href="{{ url_for('linux') }}"><img src="/static/images/videos/Videos.jpg" alt=""></a>
+        <a href="{{ url_for('script') }}"><img src="/static/images/videos/Bash-scriping.jpg" alt=""></a>
+        <a href="{{ url_for('docker') }}"><img src="/static/images/videos/Docker.jpg" alt=""></a>
+        <a href=""><img src="/static/images/videos/Ansible.jpg" alt=""></a>
+        <a href=""><img src="/static/images/videos/DevOps.jpg" alt=""></a>
+        <a href="#"><img src="/static/images/videos/MYSQL.jpg" alt=""></a>
+        <a href="#"><img src="/static/images/videos/Jenkins.jpg" alt=""></a>
+        <a href="#"><img src="/static/images/videos/Python.jpg" alt=""></a>
+    </div>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{ url_for('dashboard') }}">Dashboard</a>
+  <a href="{{ url_for('chat') }}">Chating</a>
+  <a href="{{ url_for('videos') }}">Videos</a>
+  <a href="{{ url_for('work') }}">Work</a>
+  <a href="{{ url_for('contact') }}">Contact me</a>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+</body>
+
+<div class="emtyspace">
+</div>
+
+
+<footer class="footer">
+  <p>&copy; Farkhod Sadykov 2019</p>
+</footer>
+
+</html>

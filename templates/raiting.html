@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>FS Coding</title>
+<link rel="shortcut icon" href="https://www.evolvecyber.com/assets/images/favicon.ico" />
+<link rel="stylesheet" href="/static/main/top.css" type="text/css">
+<link rel="stylesheet" href="/static/main/footler.css" type="text/css">
+<link rel="stylesheet" href="/static/main/menu.css" type="text/css">
+<link rel="stylesheet" href="/static/contact/contact.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="topnav">
+  <a class="active" href="{{ url_for('logout') }}">logout</a>
+    <a href="{{ url_for('raiting') }}">Raiting</a>
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+</div>
+</div>
+</head>
+
+
+
+
+  </table>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('chat') }}">Chating</a>
+    <a href="{{ url_for('videos') }}">Videos</a>
+    <a href="{{ url_for('work') }}">Work</a>
+    <a href="{{ url_for('contact') }}">Contact me</a>
+    <a href="{{ url_for('contact') }}">fsnotebook</a>
+  </div>
+
+
+  <script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+  }
+  </script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/raiting/raiting.css" type="text/css">
+</head>
+<div class="raiting">
+
+<span class="heading">User {{ name }}</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>150</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>63</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>15</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>6</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>20</div>
+  </div>
+</div>
+
+</div>
+<footer class="footer">
+  <p>&copy; FS Coding Class 2019</p>
+</footer>
+
+</html>

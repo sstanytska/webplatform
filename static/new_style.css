@@ -1,0 +1,30 @@
+
+.blog-info {
+  border-radius: 10px;
+  margin: -25px 10px 10px 10px;
+  background: #03cedc;
+  padding: 20px;
+}
+
+.blog-bottom .button-small {
+  color: white;
+  background-color: #fff;
+  border-radius: 10px;
+  display: block;
+
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    color: #2f3742;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}

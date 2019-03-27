@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: username
+  labels:
+    run: username
+spec:
+  containers:
+  - name: username
+    image: fsadykov/jupyter:latest
+    command: ["python3.6"]
+    args: ["/jupyter-runner.py", "--username=farkhodsadykov", "--password=sha1:975cdb0bade2:1b44f6967c1a8e7f8edea8d9fce842ea20a8161c"]
+  restartPolicy: OnFailure
