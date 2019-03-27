@@ -9,9 +9,10 @@ COPY . /app
 ## Create kube folder insied root Copy KuberConfig to the docker images
 RUN mkdir /root/.kube
 COPY config /root/.kube/
+COPY flask-kube.json /root/.kube/
 
 ## Set credentials for google cluster
-ENV GOOGLE_APPLICATION_CREDENTIALS=/root/.kube/config
+ENV GOOGLE_APPLICATION_CREDENTIALS=/root/.kube/flask-kube.json
 
 
 ## Install all requirements to the docker image

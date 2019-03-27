@@ -14,7 +14,7 @@ node {
   stage('Copy kube config') {
 
     // Copy config file to WORKSPACE if does not exist
-    sh 'if [ -f config ]; then  :; else cp -rf /fuchicorp/config ${WORKSPACE} ; fi'
+    sh 'if [ -f config ]; then  :; else cp -rf /fuchicorp/* ${WORKSPACE} ; fi'
   }
 
   stage('New release GIT') {
