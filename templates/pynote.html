@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>FS Coding</title>
+   <title>FuchiCorp</title>
 <link rel="shortcut icon" href="https://www.evolvecyber.com/assets/images/favicon.ico" />
 <link rel="stylesheet" href="/static/main/top.css" type="text/css">
 <link rel="stylesheet" href="/static/main/footler.css" type="text/css">
 <link rel="stylesheet" href="/static/main/menu.css" type="text/css">
-<link rel="stylesheet" href="/static/fsnotebook/style.css" type="text/css">
+<link rel="stylesheet" href="/static/pynote/style.css" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="topnav">
   <a class="active" href="{{ url_for('logout') }}">logout</a>
@@ -25,7 +25,7 @@
     <a href="{{ url_for('videos') }}">Videos</a>
     <a href="{{ url_for('work') }}">Work</a>
     <a href="{{ url_for('contact') }}">Contact me</a>
-    <a href="{{ url_for('fsnotebook') }}">fsnotebook</a>
+    <a href="{{ url_for('pynote') }}">PyNote</a>
   </div>
 
   <script>
@@ -49,15 +49,15 @@
       <h4>ID: {{item.id}}</h4>
       <h4>Name: {{item.server_name}}</h4>
       <h4>Port: {{item.port}}</h4>
-      <a style="text-decoration: none;"href="{{item.fsnotebooklink}}">{{item.fsnotebooklink}}</a>
+      <a style="text-decoration: none;"href="{{item.pynotelink}}">{{item.pynotelink}}</a>
     </div>
     {% endfor %}
   </div>
   <div class="request-form" style='display:block'>
-    <div class="background-fsnotebook-form">
+    <div class="background-PyNote-form">
       <form method="POST">
-        <h2>Request a FS-Notebook from Cluster</h2>
-        <h4>Please enter informations for fsnotebook</h4>
+        <h2>Request a PyNote from Kuber Cluster</h2>
+        <h4>Please enter informations for PyNote</h4>
         <br>
         <h5>Server Name</h5>
         <input type="text" name="server-name"  onfocus="this.value=''" placeholder="Enter server name" required>
@@ -69,7 +69,7 @@
       </form>
     </div>
   </div>
-  <div class="ready-fsnotebook">
+  <div class="ready-pynote">
     <a href="#">Can't access to Servers?</a>
   </div>
 </body>

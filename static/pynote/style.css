@@ -14,12 +14,12 @@ body {
 }
 
 
-.ready-fsnotebook {
+.ready-pynote {
   width: 60%;
   margin: auto;
 }
 
-.ready-fsnotebook a {
+.ready-pynote a {
   text-decoration: none;
   color: #5087e0;
 }
@@ -47,7 +47,7 @@ input[type=submit] {
   background-color: #24806e;
 }
 
-.background-fsnotebook-form {
+.background-PyNote-form {
   background-color: #207563;
   padding: 20px;
   border-radius: 10px;

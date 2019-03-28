@@ -62,12 +62,12 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-class pynote(db.Model):
+class Pynote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     server_name = db.Column(db.String(50))
     username = db.Column(db.String(50))
     password = db.Column(db.String(50))
-    fsnotebooklink = db.Column(db.String(50), unique=True)
+    pynotelink = db.Column(db.String(50), unique=True)
     port = db.Column(db.Integer, unique=True)
 
 
@@ -109,6 +109,16 @@ class QuestionForm(FlaskForm):
     last = StringField('lastname', validators=[InputRequired(), Length(min=4, max=15)])
     phone = StringField('phone', validators=[InputRequired(), Length(min=8, max=80)])
 
+
+def getExternalIp(name):
+    while True:
+        services = api.list_namespaced_service('students')
+        for service in services.items:
+            if service.status.load_balancer.ingress:
+                return service.status.load_balancer.ingress[0].ip
+                break
+
+
 #Menu for chat
 @app.route('/chat', methods=['GET', 'POST'])
 @login_required
@@ -132,17 +142,16 @@ def message():
         return jsonify({'result' : 'failure'})
 
 
-# fsnotebook
-@app.route('/fsnotebook', methods=['GET', 'POST'])
+# pynote
+@app.route('/pynote', methods=['GET', 'POST'])
 @login_required
-def fsnotebook():
-    users = pynote.query.all()
-    servers  = pynote.query.all()
+def pynote():
+    servers  = Pynote.query.all()
     if request.form:
         server_name = request.form.get('server-name')
         password = request.form.get('password')
 
-        if pynote.query.filter_by(username=current_user.username).first():
+        if Pynote.query.filter_by(username=current_user.username).first():
             return "<h1>Sorry you already requested a server.</h1>"
 
         with open('kubernetes/pynote-pod.yaml' ) as file:
@@ -153,7 +162,7 @@ def fsnotebook():
             deployment['metadata']['labels']['run'] = current_user.username
             deployment['spec']['containers'][0]['name'] = current_user.username
 
-            ## Set the password for Jupyter fsnotebook
+            ## Set the password for Jupyter pynote
             deployment['spec']['containers'][0]['args'] = [ "/jupyter-runner.py", f"--username={current_user.username}", f"--password={password}"]
 
             ## Create Pod on Cluster
@@ -167,15 +176,15 @@ def fsnotebook():
             service['metadata']['name'] = current_user.username
 
             object = api.create_namespaced_service(body=service, namespace="students")
-            pynotelink = f"http://fuchicorp.com:{service['spec']['ports'][0]['port']}"
+            pynotelink = f'http://{getExternalIp(current_user.username)}'
 
         ## Store request to the DataBase
-        new_user = pynote(username=current_user.username, password=password, server_name=server_name,  fsnotebooklink=pynotelink, port=service['spec']['ports'][0]['port'])
+        new_user = Pynote(username=current_user.username, password=password, server_name=server_name,  pynotelink=pynotelink, port=service['spec']['ports'][0]['port'])
         db.session.add(new_user)
         db.session.commit()
         return redirect(pynotelink)
 
-    return render_template('fsnotebook.html', name=current_user.username, servers=servers)
+    return render_template('pynote.html', name=current_user.username, servers=servers)
 
 # Welcome Page
 @app.route('/')
