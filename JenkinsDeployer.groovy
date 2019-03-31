@@ -1,3 +1,3 @@
 @Library('CommonLib@master') _
-def common = new com.lib.helloworld()
-common.hello()
+def common = new com.lib.JenkinsDeployerPipeline()
+common.runPipeline()
