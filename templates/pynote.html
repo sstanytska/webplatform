@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="/static/main/footler.css" type="text/css">
 <link rel="stylesheet" href="/static/main/menu.css" type="text/css">
 <link rel="stylesheet" href="/static/pynote/style.css" type="text/css">
+
+<link rel="stylesheet" href="/static/pynote/scrollList.css" type="text/css">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="topnav">
   <a class="active" href="{{ url_for('logout') }}">logout</a>
@@ -38,25 +41,49 @@
       document.getElementById("mySidenav").style.width = "0";
       document.getElementById("main").style.marginLeft= "0";
   }
+
+
+  var myVar;
+
+  function loadingFunc() {
+    document.getElementById("notLoading").id = 'loader'
+    document.getElementById("requestPynote").style.display = 'none'
+    myVar = setTimeout(showPage, 200000);
+  }
+
+  function showPage() {
+    document.getElementById("loader").id = "notLoading";
+  }
+  
   </script>
 
 </head>
 <body>
+  <div id="notLoading" ></div>
 
   <div class="master-info">
-    {% for item in servers %}
-    <div class="items">
-      <h4>ID: {{item.id}}</h4>
-      <h4>Name: {{item.server_name}}</h4>
-      <h4>Port: {{item.port}}</h4>
-      <a style="text-decoration: none;"href="{{item.pynotelink}}">{{item.pynotelink}}</a>
-    </div>
-    {% endfor %}
+    <ul class="hs">
+      {% for item in servers %}
+      <div class="item">
+        <h4>ID: {{ item.id }}</h4>
+        <h4>Name: {{ item.server_name }}</h4>
+        <h4>Port: {{ item.port }}</h4>
+        <a style="text-decoration: none; color: white;" href="{{ item.pynotelink }}">{{ item.pynotelink }}</a>
+      </div>
+      {% endfor %}
+  </ul>
   </div>
-  <div class="request-form" style='display:block'>
+
+
+
+  <div class="request-form" style='display:block' id="requestPynote">
     <div class="background-PyNote-form">
-      <form method="POST">
-        <h2>Request a PyNote from Kuber Cluster</h2>
+      <form method="POST" onsubmit="loadingFunc()">
+
+        <div class="top-text">
+          <h2>Request a PyNote from Kuber Cluster</h2>
+        </div>
+
         <h4>Please enter informations for PyNote</h4>
         <br>
         <h5>Server Name</h5>
@@ -65,12 +92,14 @@
         <h5>Password for Notebook</h5>
         <input type="password" name="password"  onfocus="this.value=''" placeholder="Please enter the password" required>
 
-        <input  type="submit"   value="Create Server" >
+        <input  type="submit" onsubmit="loadingFunc()"  value="Create PyNote Platform" >
+        <h1 style="display:none;" id="myDiv" class="animate-bottom"> Has been created pynote.</h1>
       </form>
     </div>
   </div>
+
   <div class="ready-pynote">
-    <a href="#">Can't access to Servers?</a>
+    <a href="https://www.linkedin.com/in/abdugofir-sharif-5394a516a?trk=author_mini-profile_image">Can't access to Servers?</a>
   </div>
 </body>
 
