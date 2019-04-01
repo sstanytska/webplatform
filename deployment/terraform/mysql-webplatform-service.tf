@@ -1,6 +1,6 @@
-resource "kubernetes_service" "webplatform-service" {
+resource "kubernetes_service" "${var.mysql_host}" {
   metadata {
-    name = "fuchicorp-mysql"
+    name = "${var.mysql_host}"
     namespace = "${var.webplatform_namespace}"
   }
   spec {
