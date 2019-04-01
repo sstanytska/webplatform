@@ -1,4 +1,4 @@
-resource "kubernetes_service" "${var.mysql_host}" {
+resource "kubernetes_service" "mysql_host" {
   metadata {
     name = "${var.mysql_host}"
     namespace = "${var.webplatform_namespace}"
