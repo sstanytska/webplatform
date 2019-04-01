@@ -1,5 +1,5 @@
 resource "kubernetes_deployment" "webplatform-deployment" {
-  version = "~> 1.5"
+ 
   
   metadata {
     namespace = "${var.webplatform_namespace}"
