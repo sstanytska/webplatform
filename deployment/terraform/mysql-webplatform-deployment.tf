@@ -1,5 +1,5 @@
 resource "kubernetes_deployment" "webplatform-mysql-deployment" {
- 
+
 
   metadata {
     namespace = "${var.webplatform_namespace}"
@@ -29,7 +29,7 @@ resource "kubernetes_deployment" "webplatform-mysql-deployment" {
 
           env_from {
             secret_ref {
-              name = "mysql-pass"
+              name = "fuchicorp-secret"
             }
           }
         }
