@@ -1,4 +1,5 @@
 resource "kubernetes_deployment" "webplatform-mysql-deployment" {
+  version = "~> 1.5"
 
   metadata {
     namespace = "${var.webplatform_namespace}"

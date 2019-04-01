@@ -1,4 +1,5 @@
 resource "kubernetes_service" "mysql-host" {
+  version = "~> 1.5"
   metadata {
     name = "${var.mysql_host}"
     namespace = "${var.webplatform_namespace}"

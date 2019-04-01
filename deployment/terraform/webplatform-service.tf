@@ -1,4 +1,6 @@
 resource "kubernetes_service" "webplatform-service" {
+  version = "~> 1.5"
+  
   metadata {
     name = "terraform-webplatform-service"
     namespace = "${var.webplatform_namespace}"
