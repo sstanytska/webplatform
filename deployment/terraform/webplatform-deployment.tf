@@ -28,11 +28,13 @@ resource "kubernetes_deployment" "webplatform-deployment" {
           env { name = "MYSQL_USER"     value = "${var.mysql_user}" }
           env { name = "MYSQL_DATABASE" value = "${var.mysql_database}" }
           env { name = "MYSQL_HOST"     value = "${var.mysql_host}" }
-          env { name = "SECRET_KEY"     value = "${var.mysql_secret_key}" }
-
+          
           env_from {
             secret_ref {
               name = "mysql-pass"
+            }
+            secret_ref {
+              name = "fuchicorp-secret"
             }
           }
         }
