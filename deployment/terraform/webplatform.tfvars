@@ -1,4 +1,3 @@
-
 mysql_user            =  ""
 mysql_database        =  ""
 mysql_host            =  "webplatform-mysql"
