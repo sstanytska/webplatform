@@ -1,5 +1,26 @@
 
 
-body {
+/* body {
   background-color: white
+} */
+
+.media-content .content {
+  color: white;
+}
+
+html {
+  background-color: transparent;
+}
+
+strong {
+    color: #05b98f;
+    font-weight: 700;
+}
+
+.navbar>.container {
+  background-color: #05b98f;
+}
+
+.navbar {
+  background-color: #05b98f;
 }

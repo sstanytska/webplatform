@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="test">
 <head>
   <title>FuchiCorp</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
@@ -22,8 +22,8 @@
   <a href="{{ url_for('dashboard') }}">Dashboard</a>
   <a href="{{ url_for('chat') }}">Chating</a>
   <a href="{{ url_for('videos') }}">Videos</a>
-  <a href="{{ url_for('work') }}">Work</a>
-  <a href="{{ url_for('contact') }}">Contact me</a>
+
+  <a href="{{ url_for('contact') }}">Contact us</a>
 </div>
 </head>
 
@@ -47,7 +47,7 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>{{ message.username }}</strong>
+            <strong>{{ fname }} {{ lname }}</strong>
             <br> {{ message.message }}
           </p>
         </div>
@@ -56,24 +56,6 @@
     {% endfor %}
   </div>
 
-  <!-- <div class="modal is-active"> -->
-  <div class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <input id="username_input" class="input" type="text" placeholder="Choose a username">
-        </div>
-        <div class="control">
-          <a id="start_chat" class="button is-info">
-            Start Chatting
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 
   <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
@@ -134,16 +116,15 @@
         });
     });
 
+    var input = document.getElementById("chat_text");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       document.getElementById("chat_btn").click();
+      }
+    });
+
   </script>
-
-
-
-
-
-
-
-
-
 
 
 <script>
@@ -159,20 +140,9 @@ function closeNav() {
 </script>
 
 
-
-
-
-
-
-
 </body>
 <div class="emtyspace">
 </div>
-
-
-
-
-
 
 
 </html>
