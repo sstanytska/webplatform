@@ -14,6 +14,8 @@
 <div class="topnav">
   <a class="active" href="{{ url_for('logout') }}">logout</a>
     <a href="{{ url_for('raiting') }}">Raiting</a>
+    <a href="{{ url_for('pynote') }}">PyNote</a>
+    <a href="{{ url_for('admin.index') }}">Admin</a>
   <div id="main">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 </div>
@@ -26,8 +28,8 @@
     <a href="{{ url_for('dashboard') }}">Dashboard</a>
     <a href="{{ url_for('chat') }}">Chating</a>
     <a href="{{ url_for('videos') }}">Videos</a>
-    <a href="{{ url_for('work') }}">Work</a>
-    <a href="{{ url_for('contact') }}">Contact me</a>
+
+    <a href="{{ url_for('contact') }}">Contact us</a>
     <a href="{{ url_for('pynote') }}">PyNote</a>
   </div>
 
@@ -54,7 +56,7 @@
   function showPage() {
     document.getElementById("loader").id = "notLoading";
   }
-  
+
   </script>
 
 </head>

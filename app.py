@@ -221,10 +221,6 @@ def script():
 def raiting():
     return render_template('raiting.html', name=current_user.username)
 
-@app.route('/work', methods=['GET', 'POST'])
-@login_required
-def work():
-    return render_template('work.html', name=current_user.username)
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
