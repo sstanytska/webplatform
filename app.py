@@ -24,6 +24,10 @@ app.config.from_pyfile('config.cfg')
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
+## Loading the Kubernetes configuration
+config.load_kube_config()
+kube = client.ExtensionsV1beta1Api()
+api = core_v1_api.CoreV1Api()
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -144,11 +148,7 @@ def message():
 @login_required
 def pynote():
 
-    ## Loading the Kubernetes configuration
     config.load_kube_config()
-    kube = client.ExtensionsV1beta1Api()
-    api = core_v1_api.CoreV1Api()
-
     servers  = Pynote.query.all()
     if request.form:
         server_name = request.form.get('server-name')
