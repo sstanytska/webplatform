@@ -19,14 +19,20 @@ import yaml
 import time
 
 app = Flask(__name__)
+
+## To different enviroments enable this
 app.config.from_pyfile('config.cfg')
+
+## To testing I create my own config
+# app.config.from_pyfile('/Users/fsadykov/backup/databases/config.cfg')
 
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
+
+## Loading the Kubernetes configuration
 config.load_kube_config()
 kube = client.ExtensionsV1beta1Api()
 api = core_v1_api.CoreV1Api()
-
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -146,6 +152,12 @@ def message():
 @app.route('/pynote', methods=['GET', 'POST'])
 @login_required
 def pynote():
+
+    ## Loading the kubernetes objects
+    config.load_kube_config()
+    kube = client.ExtensionsV1beta1Api()
+    api = core_v1_api.CoreV1Api()
+
     servers  = Pynote.query.all()
     if request.form:
         server_name = request.form.get('server-name')
@@ -245,7 +257,7 @@ def signup():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         hashed_password = generate_password_hash(form.password.data, method='sha256')
-        new_user = User(username=form.username.data, firstname=form.firstname.data, lastname=form.lastname.data,  email=form.email.data, password=hashed_password, status='False')
+        new_user = User(username=form.username.data.lower(), firstname=form.firstname.data, lastname=form.lastname.data,  email=form.email.data, password=hashed_password, status='False')
         if user:
             if user.username == form.username.data:
                 return '<h1>This user name is exist</h1>'
@@ -269,11 +281,15 @@ def login():
         return '<h1>Invalid username or password</h1>'
     return render_template('login.html', form=form)
 
+
 @app.route('/disabled-user')
 def disabled_user():
     return render_template('disabled-user.html')
 
 
+@app.route('/deletepynote')
+def deletepynote():
+    return 'You just delete a pynote'
 @app.route('/logout')
 @login_required
 def logout():

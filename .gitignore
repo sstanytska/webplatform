@@ -6,5 +6,6 @@
 *__pycache__*
 *.ftpconfig*
 *.DS_Store*
+config.cfg
 
 config
