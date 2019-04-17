@@ -35,6 +35,7 @@ resource "kubernetes_deployment" "webplatform-deployment" {
               name = "fuchicorp-secret"
             }
           }
+          image_pull_policy = "Always"
         }
       }
     }
